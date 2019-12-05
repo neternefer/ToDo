@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap&subset=latin-ext');
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to top right, rgba(0, 136, 169, 1) 70%, rgba(250, 234, 214, 1) 25%) no-repeat center center fixed;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+.app__info {
+    padding-bottom: 48px;
+    max-width: 600px;
+    color: #fff;
+}
+
+.signupSection {
+    max-width: 400px;
+    height: 500px;
+    background: #fff;
+    padding: 36px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.signup__title {
+    text-align: center;
+    color: rgba(0, 136, 169, 1);
+    font-size: 36px;
+}
+
+.signup__label {
+    display: block;
+    padding: 16px;
+}
+
+.signup__input {
+    height: 40px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.signup__button {
+    background: rgba(0, 136, 169, 1);
+    color: #faebd7;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    border: none;
+    padding: 9px 25px;
+    border-radius: 50px;
+    display: block;
+    margin-left: auto;
+    margin-top: 16px;
+}
+
+.send {
+    color: #faebd7;
+    text-decoration: none;
+}
+
+.sign__up {
+    padding: 16px;
+}
