@@ -1,7 +1,6 @@
 const express = require("express");
 const _ = require("lodash");
 const mongoose = require("mongoose");
-const tasks = require("./routes/routes");
 
 const app = express();
 
@@ -14,7 +13,6 @@ mongoose
   .catch(err => console.error("Could not connect to MongoDB...", err));
 
 app.use(express.json());
-app.use("/api/tasks", tasks);
 
 const taskSchema = new mongoose.Schema({
   text: {
@@ -30,6 +28,11 @@ const taskSchema = new mongoose.Schema({
   author: String
 });
 const Task = mongoose.model("Task", taskSchema);
+
+module.exports = Task;
+
+const tasks = require("./routes/routes");
+app.use("/api/tasks", tasks);
 
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
