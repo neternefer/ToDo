@@ -2,8 +2,18 @@ const express = require("express");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 const tasks = require("./routes/routes");
+const auth = require('./routes/auth');
+const dotenv = require('dotenv');
 
 const app = express();
+dotenv.config();
+
+//mongoose.connect(
+//    process.env.DB_CONNECT,
+//    { useNewUrlParser: true }, 
+//    () => {
+//        console.log('Connected to DB');
+//});
 
 mongoose
   .connect("mongodb://localhost/tasks", {
@@ -15,6 +25,7 @@ mongoose
 
 app.use(express.json());
 app.use("/api/tasks", tasks);
+app.use("/api/users", auth);
 
 const taskSchema = new mongoose.Schema({
   text: {
