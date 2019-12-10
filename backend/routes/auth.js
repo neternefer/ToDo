@@ -41,6 +41,20 @@ router.post('/login', [valid(login), priv], async (req, res) => {
     if(!correctPassword)return res.status(400).send('Invalid email or password');
     res.send(_.pick(user, ['_id', 'email']));   
 });
+router.get('/', (req, res) => {
+    //Show all users in database
+    User.find({}, function(err, users) {
+      const userMap = {};
+      users.forEach(function(user) {
+      userMap[user._id] = user;
+      });
+    res.send(userMap);  
+    });
+});
+router.get('/myAccount', priv, (req, res) => {
+    //Get current logged in user
+    res.send(req.user);
+});
 
 
 module.exports = router;
