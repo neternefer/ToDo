@@ -16,14 +16,12 @@ mongoose
   .then(() => console.log("Connected to MongoDB..."))
   .catch(err => console.error("Could not connect to MongoDB...", err));
 
-//mongoose
-//  .connect("mongodb://localhost/tasks", {
-//    useNewUrlParser: true,
-//    useUnifiedTopology: true
-//  })
-//  .then(() => console.log("Connected to MongoDB..."))
-//  .catch(err => console.error("Could not connect to MongoDB...", err));
 
+app.set("view engine", "ejs");
+app.use("/public", express.static("public"));
+app.use(express.static("../"));
+app.set("views", __dirname + "/views");
+app.engine("html", require("ejs").renderFile);
 app.use(express.json());
 app.use("/api/tasks", tasks);
 app.use("/api/users", auth);
