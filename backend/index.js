@@ -8,20 +8,21 @@ const dotenv = require('dotenv');
 const app = express();
 dotenv.config();
 
-//mongoose.connect(
-//    process.env.DB_CONNECT,
-//    { useNewUrlParser: true }, 
-//    () => {
-//        console.log('Connected to DB');
-//});
+mongoose.connect(
+    process.env.DB_CONNECT,
+    { useNewUrlParser: true,
+      useUnifiedTopology: true 
+    }) 
+   .then(() => console.log("Connected to MongoDB..."))
+   .catch(err => console.error("Could not connect to MongoDB...", err));
 
-mongoose
-  .connect("mongodb://localhost/tasks", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => console.log("Connected to MongoDB..."))
-  .catch(err => console.error("Could not connect to MongoDB...", err));
+//mongoose
+//  .connect("mongodb://localhost/tasks", {
+//    useNewUrlParser: true,
+//    useUnifiedTopology: true
+//  })
+//  .then(() => console.log("Connected to MongoDB..."))
+//  .catch(err => console.error("Could not connect to MongoDB...", err));
 
 app.use(express.json());
 app.use("/api/tasks", tasks);
