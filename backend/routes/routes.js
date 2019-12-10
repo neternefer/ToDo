@@ -3,7 +3,7 @@ const express = require("express");
 const _ = require("lodash");
 const Joi = require("joi");
 const router = express.Router();
-const Task = require("../index");
+const Task = require("../model/task");
 
 router.post("/", async (req, res) => {
   if (!req.body.text || req.body.text < 5) {
