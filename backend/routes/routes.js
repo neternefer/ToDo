@@ -1,9 +1,13 @@
 const express = require("express");
-
+const path = require('path');
 const _ = require("lodash");
 const Joi = require("joi");
 const router = express.Router();
 const Task = require("../model/task");
+
+router.get("/", async (req, res) => {
+  res.sendFile(path.join(__dirname, "../../login.html"));
+});
 
 router.post("/", async (req, res) => {
   if (!req.body.text || req.body.text < 5) {
