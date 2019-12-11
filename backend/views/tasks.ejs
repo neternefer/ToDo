@@ -61,14 +61,15 @@
 
           <!-- <section class="toDo__column-task task"> -->
 
-          <% tasks.forEach(function(item){ %>
+          <% tasks.forEach(function(item){ %> <% if(item.status === "to_do") {
+          %>
           <section class="toDo__column-task task">
             <p class="task__description task__toDo">
-              <%= item.taskDescription %>
+              <%= item.text %>
             </p>
             <section class="task__avatar"></section>
           </section>
-          <% }); %>
+          <% } %> <% }); %>
 
           <!-- <% for(let i=0; i<tasks.length; i++) { %>
                         <%=tasks[i].taskDescription; %>
@@ -84,6 +85,15 @@
           <p class="toDo__column-addButton">
             <a class="toDo__addTask-link" href="#task">+ Add task</a>
           </p>
+          <% tasks.forEach(function(item){ %> <% if(item.status ===
+          "in_progress") { %>
+          <section class="toDo__column-task task">
+            <p class="task__description task__toDo">
+              <%= item.text %>
+            </p>
+            <section class="task__avatar"></section>
+          </section>
+          <% } %> <% }); %>
 
           <!-- Here is a sceleton of the task now it is comment out because it should be generated from js -->
           <!-- This is the tamplate of In progress task for generating the task from js. Every task should have class "task" and inside should have p element with two classes "task__description" and "task__inprogress" !WARNING - the second class gave the color of the line under the paragraph. In to do the color is gold -->
@@ -102,6 +112,16 @@
           <p class="toDo__column-addButton">
             <a class="toDo__addTask-link" href="#task">+ Add task</a>
           </p>
+
+          <% tasks.forEach(function(item){ %> <% if(item.status === "done") { %>
+          <section class="toDo__column-task task">
+            <%= item.author %>
+            <p class="task__description task__toDo">
+              <%= item.text %>
+            </p>
+            <section class="task__avatar"></section>
+          </section>
+          <% } %> <% }); %>
 
           <!-- Here is a sceleton of the task now it is comment out because it should be generated from js -->
           <!-- This is the tamplate of Done task for generating the task from js. Every task should have class "task" and inside should have p element with two classes "task__description" and "task__done" !WARNING - the second class gave the color of the line under the paragraph. In to do the color is green -->

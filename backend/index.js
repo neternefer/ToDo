@@ -2,29 +2,21 @@ const express = require("express");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 const tasks = require("./routes/routes");
+var bodyParser = require("body-parser");
 
 const app = express();
-
-const examplesTasks = [
-  {
-    taskDescription: "Lorem ipsum dolor, sit amet consecteturadipisicing elit."
-  },
-  {
-    taskDescription: "Lorem ipsum dolor, sit amet consecteturadipisicing elit."
-  },
-  {
-    taskDescription: "Lorem ipsum dolor, sit amet consecteturadipisicing elit."
-  }
-];
 
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
 
 mongoose
-  .connect("mongodb://localhost/tasks", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+  .connect(
+    "mongodb+srv://user1:3saKGtSfvK2sEaj3@cluster0-kjmeo.mongodb.net/test?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
+  )
   .then(() => console.log("Connected to MongoDB..."))
   .catch(err => console.error("Could not connect to MongoDB...", err));
 
@@ -33,6 +25,11 @@ app.set("views", __dirname + "/views");
 app.engine("html", require("ejs").renderFile);
 app.use(express.json());
 app.use("/api/tasks", tasks);
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 
 const taskSchema = new mongoose.Schema({
   text: {
@@ -47,14 +44,28 @@ const taskSchema = new mongoose.Schema({
   },
   author: String
 });
+const Task = mongoose.model("Task", taskSchema);
 
-app.get("/tasks", (req, res) => {
+app.get("/tasks", async (req, res) => {
+  const tasks = await Task.find();
+  console.log(tasks);
   res.render("tasks", {
-    tasks: examplesTasks
+    tasks: tasks
   });
 });
 
-const Task = mongoose.model("Task", taskSchema);
+app.put("/updateTask", async (req, res) => {
+  let result;
+  try {
+    result = await Task.updateOne(
+      { _id: req.body.id },
+      { text: req.body.text, status: req.body.status }
+    );
+    res.send("Task updated");
+  } catch (error) {
+    res.send("Update was unsuccessful");
+  }
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
