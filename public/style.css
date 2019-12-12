@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap&subset=latin-ext');
+html {
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+*, *:after, *:before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ececec;
+}
+
+.toDo__nav {
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 24px;
+}
+
+.toDo__app {
+    opacity: 1;
+}
+
+/* Styled if necessary */
+
+/* .nav__list {
+    display: flex;
+    list-style: none;
+} */
+
+.toDo__appMsg {
+    font-weight: 500;
+}
+
+.toDo__search, .toDo__titleInput {
+    width: 300px;
+    margin-left: auto;
+    padding: 10px;
+    border: 2px solid rgba(0, 136, 169, 1);
+    border-radius: 50px;
+}
+
+.addTask__button, .removeTask__button, .task__input, .toDo__addTask, .toDo__btn, .toDo__submitBtn, .toDo__column-task, .toDo__column-addButton, .toDo__loginBtn, .addTask__button, .removeTask__button {
+    box-shadow: 0 3px 5px 0 rgba(36, 50, 66, 0.2);
+}
+
+.toDo__nav, .toDo__titleDisplay, .toDo__title {
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.toDo__btn, .toDo__submitBtn, .toDo__column-addButton, .toDo__loginBtn, .addTask__button, .removeTask__button {
+    background: rgba(0, 136, 169, 1);
+    color: #faebd7;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.toDo__addTask-link, .addTask__link, .removeTask__link {
+    text-decoration: none;
+    color: #faebd7;
+}
+
+/* Classes for navigation if exists */
+
+/* 
+.nav__list-element {
+    padding: 30px;
+    color: rgba(0, 136, 169, 1);
+    text-align: center;
+    width: 200px;
+}
+
+.nav__list-element:nth-child(3) {
+    background: rgba(0, 136, 169, 1);
+    color: #faebd7;
+    font-size: 24px;
+    width: 80px;
+    margin: 0 auto;
+}
+
+.nav__list-element:hover:nth-child(3) {
+    background: rgba(0, 136, 169, 0.8);
+}
+
+.nav__list-link {
+    text-decoration: none;
+    color: rgba(0, 136, 169, 1);
+} */
+
+.toDo__login-link {
+    padding-right: 30px;
+}
+
+.toDo__loginBtn, .addTask__button, .removeTask__button {
+    margin-left: 20px;
+    padding: 9px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-size: 18px;
+}
+
+.toDo__login:hover {
+    background: rgba(0, 136, 169, 0.8);
+}
+
+.toDo__title {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    background: #fff;
+    border-top: 1px solid #e7e4e4;
+    padding: 16px 0;
+    font-weight: 700;
+    display: block;
+}
+
+.toDo__column-addButton {
+    text-align: center;
+    width: 250px;
+    padding: 8px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.toDo__column-addButton:hover {
+    background: rgba(0, 136, 169, 0.8);
+    color: #fff;
+}
+
+.toDo__addTask-link {
+    font-size: 20px
+}
+
+.toDo__titleDisplay {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    background: #fff;
+    border-top: 1px solid #e7e4e4;
+    padding: 16px 0;
+    font-weight: 700;
+    display: none;
+}
+
+.toDo__board {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.toDo__column {
+    width: 250px;
+    margin: 16px;
+}
+
+.toDo__column-title {
+    padding: 16px 0;
+}
+
+.toDo__column-task {
+    margin-top: 16px;
+    background: #fff;
+    padding: 16px;
+}
+
+.task__description::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 8px;
+    background: transparent;
+    margin-bottom: 16px;
+    border-radius: 80px;
+}
+
+.task__toDo::before {
+    background: #ff9b9b;
+}
+
+.task__inprogress::before {
+    background: #fae779;
+}
+
+.task__done::before {
+    background: #97fa97;
+}
+
+.task__avatar {
+    width: 50px;
+    height: 50px;
+    background: url(./img/avatar1.jpg) center no-repeat;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    margin-top: 16px;
+}
+
+.toDo__btn, .toDo__submitBtn {
+    font-size: 18px;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: rgba(0, 136, 169, 0.8);
+}
+
+/* 
+.toDo__addColumn {
+    padding: 36px 0 16px 16px;
+} */
+
+.add {
+    color: rgba(0, 136, 169, 1);
+}
+
+/* Task */
+
+.toDo__addTask {
+    position: absolute;
+    display: none;
+    width: 400px;
+    border: 1px solid transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 500;
+    z-index: 1;
+    background: #ddd;
+}
+
+.task__form, .addTask__label, .task__input, .addTask__avatar, .buttons, .toDo__title {
+    display: block;
+}
+
+.task__form {
+    margin: 16px;
+}
+
+.task__input {
+    width: 100%;
+    padding: 8px;
+    height: 200px;
+    scroll-behavior: smooth;
+    font-size: 18px;
+    margin: 16px 0;
+    border: transparent;
+}
+
+.avatar__inputs {
+    margin: 8px 8px 8px 0;
+}
+
+.avatar__img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+
+.addTask__button {
+    margin-left: 0;
+}
+
+.removeTask__button {
+    background: red;
+}
+
+.buttons {
+    padding: 0;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <main class="toDo__app">
+        <nav class="toDo__nav">
+            <%# EJS comment 
+            <!-- This is navigation if we manage to do some extra features, for now it is replaced by the p element with hello msg -->
+            <!-- <ul class="nav__list">
+                <li class="nav__list-element"><a class="nav__list-link" href="#">My tasks</a></li>
+                <li class="nav__list-element"><a class="nav__list-link" href="#">Inbox</a></li>
+                <li class="nav__list-element">+</li>
+            </ul> -->
+            %>
+
+            <p class="toDo__appMsg">Hello <%= user.name %>, have a productive day!</p>
+            <input class="toDo__search" type="search">
+            <button class="toDo__btn" type="submit"><i class="material-icons">
+                    search
+                </i></button>
+            <a class="toDo__login-link" href="/users/logout"><button class="toDo__loginBtn">Log out</button></a>
+        </nav>
+
+        <%# EJS comment
+        <!-- Here after click Submit button: 
+            1. Function should make variable eg. input_value and asign to this variable the value from input field. 
+            2. Should make variable eg. display_title and assign to this variable by for eg. document.querySelector method section with "toDo__titleDisplay" class
+            3. Then set the innerHTML of variable display_title to new p element which value is input_value from previous steps (eg`<p>${input_value}</p>`)
+            4. Last step is to set the display property of section with "toDo__title" class to none and "toDo__titleDisplay to block- the input field should then disapiers and paragraph with input value appears   -->
+        %>
+
+        <section class="toDo__title">
+            <input class="toDo__titleInput" type="text">
+            <button class="toDo__submitBtn">Submit</button>
+        </section>
+        <section class="toDo__titleDisplay"></section>
+        <%# EJS comment <!-- Here toDo board starts --> %>
+        <section class="toDo__board">
+            <section class="toDo__column">
+                <h1 class="toDo__column-title">To do</h1>
+                <%# EJS comment 
+                <!-- Here when user click on +Add task button in the class .toDo__app opacity should have value of 0.05,
+                and .toDo__addTask should have display to block to be visible on the page  -->
+                %>
+
+                <p class="toDo__column-addButton"><a class="toDo__addTask-link" href="#task">+ Add task</a></p>
+
+                <%# EJS comment
+                <!-- Here is a sceleton of the task now it is comment out because it should be generated from js -->
+                <!-- This is the tamplate of To DO task for generating the task from js. Every task should have class "task" and inside should have p element with two classes "task__description" and "task__toDo" !WARNING - the second class gave the color of the line under the paragraph. In to do the color is red -->
+
+                <!-- <section class="toDo__column-task task">
+                    <p class="task__description task__toDo">Lorem ipsum dolor, sit amet consectetur
+                        adipisicing elit.
+                        Perspiciatis
+                        saepe hic consequatur tenetur dolorem voluptatem earum, neque quidem delectus minus sunt aliquam
+                        quibusdam, in repellat.</p>
+                    <section class="task__avatar">
+                    </section>
+                </section> -->
+                %>
+            </section>
+
+            <%# EJS comment <!-- Sekcja in progress --> %>
+
+            <section class="toDo__column">
+                <h1 class="toDo__column-title">In progress</h1>
+                <p class="toDo__column-addButton"><a class="toDo__addTask-link" href="#task">+ Add task</a></p>
+
+                <%# EJS comment
+                <!-- Here is a sceleton of the task now it is comment out because it should be generated from js -->
+                <!-- This is the tamplate of In progress task for generating the task from js. Every task should have class "task" and inside should have p element with two classes "task__description" and "task__inprogress" !WARNING - the second class gave the color of the line under the paragraph. In to do the color is gold -->
+
+                <!-- <section class="toDo__column-task task">
+                    <p class="task__description task__inprogress">Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Perspiciatis
+                        saepe hic consequatur tenetur dolorem voluptatem earum, neque quidem delectus minus sunt aliquam
+                        quibusdam, in repellat.</p>
+                    <section class="task__avatar"></section>
+                </section> -->
+                %>
+
+            </section>
+            <%# EJS comment <!-- Sekcja done --> %>
+            <section class="toDo__column">
+                <h1 class="toDo__column-title">Done</h1>
+                <p class="toDo__column-addButton"><a class="toDo__addTask-link" href="#task">+ Add task</a></p>
+
+                <%# EJS comment
+                <!-- Here is a sceleton of the task now it is comment out because it should be generated from js -->
+                <!-- This is the tamplate of Done task for generating the task from js. Every task should have class "task" and inside should have p element with two classes "task__description" and "task__done" !WARNING - the second class gave the color of the line under the paragraph. In to do the color is green -->
+
+                <!-- <section class="toDo__column-task task">
+                    <p class="task__description task__done">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Perspiciatis
+                        saepe hic consequatur tenetur dolorem voluptatem earum, neque quidem delectus minus sunt aliquam
+                        quibusdam, in repellat.</p>
+                    <section class="task__avatar"></section>
+                </section> -->
+                %>
+
+            </section>
+
+            <%# EJS comment
+            <!-- Button for adding extra personalized column use if needed -->
+            <!-- <section class="toDo__addColumn">
+                <a class="add" href="#">+ Add column</a>
+            </section> -->
+            %>
+            
+        </section>
+
+    </main>
+    <%# EJS comment <!-- Here we have task section --> %>
+    <section class="toDo__addTask" id="task">
+        <form class="task__form">
+            <label class="addTask__label" for="description">Task description:
+                <textarea class="task__input" type="text" required></textarea>
+            </label>
+            <%# EJS comment <!-- Here when user click on one of the avatar's, avatar which was clicked should be assigned to the task --> %>
+            <label class="addTask__avatar" for="avatar">Choose your avatar:
+                <section class="avatar__inputs">
+                    <input class="avatar__img" type="image" src="./img/avatar1.jpg" alt="Cat">
+                    <input class="avatar__img" type="image" src="./img/avatar2.jpg" alt="Pantera">
+                    <input class="avatar__img" type="image" src="./img/avatar3.jpg" alt="Parrot">
+                    <input class="avatar__img" type="image" src="./img/avatar4.jpg" alt="Eagle">
+                    <input class="avatar__img" type="image" src="./img/avatar5.jpg" alt="Bird">
+                    <input class="avatar__img" type="image" src="./img/avatar6.jpg" alt="Squirrel">
+                </section>
+            </label>
+            <%# EJS comment <!-- Here when user click on thin button task should save in to do section --> %>
+            <section class="buttons">
+                <button class="addTask__button">
+                    <a class="addTask__link" href="index.html">Add</a>
+                </button>
+                <%# EJS comment <!-- Here when user click on this button task should be removed --> %>
+                <button class="removeTask__button">
+                    <a class="removeTask__link" href="index.html">Remove</a>
+                </button>
+            </section>
+
+        </form>
+    </section>
+</body>
+
+</html>
