@@ -2,7 +2,6 @@ const express = require("express");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 const routes = require("./routes/tasks.js");
-var bodyParser = require("body-parser");
 
 const app = express();
 
@@ -12,11 +11,6 @@ app.use("/", express.static("../"));
 app.engine("html", require("ejs").renderFile);
 app.use(express.json());
 app.use("/tasks", routes);
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
 
 mongoose
   .connect(

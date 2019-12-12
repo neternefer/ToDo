@@ -5,7 +5,13 @@ const Joi = require("joi");
 const router = express.Router();
 const path = require("path");
 const Task = require("../model/task.js")
+var bodyParser = require("body-parser");
 
+router.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 // router.get("/", async (req, res) => {
 //   res.sendFile(path.join(__dirname, "../../login.html"));
 // });
