@@ -1,7 +1,7 @@
 const express = require("express");
 const _ = require("lodash");
 const router = express.Router();
-const Task = require("../model/task.js")
+const Task = require("../model/task.js");
 var bodyParser = require("body-parser");
 
 router.use(
@@ -37,19 +37,22 @@ router.get("/", async (req, res) => {
   });
 });
 
-// body should include: id, text, status
-router.put("/", async (req, res) => {
+// body should include: text, status
+router.put("/:id", async (req, res) => {
   let result;
   try {
     console.log(req.body);
     result = await Task.updateOne({
-      _id: req.body.id
+      _id: req.params.id
     }, {
       text: req.body.text,
       status: req.body.status
     });
-    console.log(result);
-    res.send("Task updated");
+    if (result.nModified > 0) {
+      res.send("Update was successful");
+    } else {
+      res.send("Update was unsuccessful");
+    }
   } catch (error) {
     res.send("Update was unsuccessful");
   }
