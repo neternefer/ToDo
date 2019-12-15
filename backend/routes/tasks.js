@@ -3,6 +3,8 @@ const _ = require("lodash");
 const router = express.Router();
 const Task = require("../model/task.js");
 var bodyParser = require("body-parser");
+const valid = require('../helpers/errorHandle')
+const {task} = require('../validation');
 
 router.use(
   bodyParser.urlencoded({
@@ -10,7 +12,7 @@ router.use(
   })
 );
 
-router.post("/", async (req, res) => {
+router.post("/", valid(task), async (req, res) => {
   if (!req.body.text || req.body.text < 5) {
     //400 Bad Request
     res
