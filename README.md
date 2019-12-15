@@ -23,6 +23,9 @@ Each task contains the author's name and inner text with its status of To do, In
 being indicated by a color scheme. Only registred and logged in users can interact with tasks.
 
 ## Sample pictures
+Tasks board             |  Login 
+:-------------------------:|:-------------------------:
+![Tasks board](./screenshots/Screenshot_1.png)  |  ![Login](./screenshots/Screenshot_2.png)
 
 ## Team
 * [Anna-Jasica](https://github.com/Anna-Jasica)
