@@ -20,7 +20,7 @@ JavaScript, Express, Node.js, MongoDB
 ## Functionalities
 Based on Trello and Asana, this app allows users to create, edit and delete tasks. 
 Each task contains the author's name and inner text with its status of To do, In progress or Done
-being indicated by a color scheme. Only registred and logged in users can interact with tasks.
+being indicated by a color scheme. Only registered and logged in users can interact with tasks.
 
 ## Sample pictures
 Tasks board             |  Login 
