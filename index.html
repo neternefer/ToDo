@@ -46,13 +46,12 @@
                 <!-- This is the tamplate of To DO task for generating the task from js. Every task should have class "task" and inside should have p element with two classes "task__description" and "task__toDo" !WARNING - the second class gave the color of the line under the paragraph. In to do the color is red -->
 
                 <!-- <section class="toDo__column-task task">
+                    <p class="task__author">Author: <span class="author__name"></span></p>
                     <p class="task__description task__toDo">Lorem ipsum dolor, sit amet consectetur
                         adipisicing elit.
                         Perspiciatis
                         saepe hic consequatur tenetur dolorem voluptatem earum, neque quidem delectus minus sunt aliquam
                         quibusdam, in repellat.</p>
-                    <section class="task__avatar">
-                    </section>
                 </section> -->
             </section>
             <!-- Sekcja in progress -->
@@ -64,11 +63,11 @@
                 <!-- This is the tamplate of In progress task for generating the task from js. Every task should have class "task" and inside should have p element with two classes "task__description" and "task__inprogress" !WARNING - the second class gave the color of the line under the paragraph. In to do the color is gold -->
 
                 <!-- <section class="toDo__column-task task">
+                    <p class="task__author">Author: <span class="author__name"></span></p>
                     <p class="task__description task__inprogress">Lorem ipsum dolor, sit amet consectetur adipisicing
                         elit. Perspiciatis
                         saepe hic consequatur tenetur dolorem voluptatem earum, neque quidem delectus minus sunt aliquam
                         quibusdam, in repellat.</p>
-                    <section class="task__avatar"></section>
                 </section> -->
             </section>
             <!-- Sekcja done -->
@@ -80,11 +79,11 @@
                 <!-- This is the tamplate of Done task for generating the task from js. Every task should have class "task" and inside should have p element with two classes "task__description" and "task__done" !WARNING - the second class gave the color of the line under the paragraph. In to do the color is green -->
 
                 <!-- <section class="toDo__column-task task">
+                    <p class="task__author">Author: <span class="author__name"></span></p>
                     <p class="task__description task__done">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                         Perspiciatis
                         saepe hic consequatur tenetur dolorem voluptatem earum, neque quidem delectus minus sunt aliquam
                         quibusdam, in repellat.</p>
-                    <section class="task__avatar"></section>
                 </section> -->
             </section>
             <!-- Button for adding extra personalized column use if needed -->
@@ -97,11 +96,12 @@
     <!-- Here we have task section -->
     <section class="toDo__addTask" id="task">
         <form class="task__form">
+
             <label class="addTask__label" for="description">Task description:
                 <textarea class="task__input" type="text" required></textarea>
             </label>
             <!-- Here when user click on one of the avatar's, avatar which was clicked should be assigned to the task -->
-            <label class="addTask__avatar" for="avatar">Choose your avatar:
+            <!-- <label class="addTask__avatar" for="avatar">Choose your avatar:
                 <section class="avatar__inputs">
                     <input class="avatar__img" type="image" src="./img/avatar1.jpg" alt="Cat">
                     <input class="avatar__img" type="image" src="./img/avatar2.jpg" alt="Pantera">
@@ -110,7 +110,7 @@
                     <input class="avatar__img" type="image" src="./img/avatar5.jpg" alt="Bird">
                     <input class="avatar__img" type="image" src="./img/avatar6.jpg" alt="Squirrel">
                 </section>
-            </label>
+            </label> -->
             <!-- Here when user click on thin button task should save in to do section -->
             <section class="buttons">
                 <button class="addTask__button">
