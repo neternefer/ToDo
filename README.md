@@ -32,4 +32,5 @@ Tasks board             |  Login
 * [neternefer](https://github.com/neternefer)
 * [Jadwiga92](https://github.com/Jadwiga92)
 * [OrianaKJ](https://github.com/OrianaKJ)
+* [karolsz15](https://github.com/karolsz15)
 
